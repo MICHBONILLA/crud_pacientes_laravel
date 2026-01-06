@@ -1,7 +1,3 @@
-/**
- * Manejo de carga dinámica de municipios según el departamento seleccionado
- */
-
 function cargarMunicipios(departamentoId, municipioSeleccionado = null) {
     const municipioSelect = document.getElementById("municipio");
 
@@ -40,10 +36,10 @@ function inicializarMunicipios() {
 
     if (!departamentoSelect || !municipioSelect) return;
 
-    // Obtener el municipio actual desde el data attribute
+    // Obtiene el municipio actual desde el data attribute
     const municipioActual = municipioSelect.dataset.municipioActual;
 
-    // Cargar municipios al iniciar si hay un departamento seleccionado
+    // Carga municipios al iniciar si hay un departamento seleccionado
     const departamentoId = departamentoSelect.value;
     if (departamentoId) {
         cargarMunicipios(departamentoId, municipioActual);

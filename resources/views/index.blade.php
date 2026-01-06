@@ -18,8 +18,9 @@
     </div>
 
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
@@ -38,6 +39,7 @@
                 <th>Género</th>
                 <th>Departamento</th>
                 <th>Municipio</th>
+                <th>Foto</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -59,6 +61,13 @@
                     <td>{{ $paciente->departamento->nombre ?? '' }}</td>
                     <td>{{ $paciente->municipio->nombre ?? '' }}</td>
                     <td>
+                        @if($paciente->foto)
+                            <img src="{{ asset('storage/' . $paciente->foto) }}" width="50" height="50" class="img-thumbnail">
+                        @else
+                            <span class="text-muted">Sin foto</span>
+                        @endif
+                    </td>
+                    <td>
                         <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-warning btn-sm">
                             Editar
                         </a>
@@ -75,13 +84,25 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">
+                    <td colspan="9" class="text-center">
                         No hay pacientes registrados
                     </td>
                 </tr>
             @endforelse
         </tbody>
     </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ocultar mensaje de éxito después de 6 segundos
+        const successAlert = document.getElementById('success-alert');
+        if (successAlert) {
+            setTimeout(() => {
+                const alert = new bootstrap.Alert(successAlert);
+                alert.close();
+            }, 6000);
+        }
+    </script>
 
 </body>
 

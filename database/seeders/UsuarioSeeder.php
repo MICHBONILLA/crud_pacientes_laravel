@@ -9,14 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
         Usuario::create([
             'documento' => '123456',
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('1234567890'),
         ]);
     }
 }

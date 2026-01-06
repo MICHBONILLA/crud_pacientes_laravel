@@ -5,6 +5,11 @@ use App\Http\Controllers\PacienteController;
 use App\Models\Municipio;
 use App\Http\Controllers\Authcontroller;
 
+// Ruta que redirige a la página de login
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
 // Rutas de autenticación (públicas)
 Route::get('/login', [Authcontroller::class, 'mostrarLogin'])->name('login');
 Route::post('/login', [Authcontroller::class, 'login']);
