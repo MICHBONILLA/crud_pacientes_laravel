@@ -19,11 +19,12 @@ Este proyecto se desarrollo como **prueba técnica**.
 
 ## Requisitos
 - PHP >= 8.0
+- Laravel >= 10
 - Composer
 - MySQL
 - Servidor local (XAMPP, Laragon o similar)
 
-##Instalación y ejecución con bash
+## Instalación y ejecución con bash
 
 1. **Clonar el repositorio**
 
